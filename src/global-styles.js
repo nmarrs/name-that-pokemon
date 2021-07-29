@@ -1,5 +1,10 @@
 import { Global, css } from '@emotion/react'
 
+export const SIZES = {
+  small: 'sm',
+  large: 'lg',
+}
+
 const GlobalStyles = () => {
   return (
     <Global
