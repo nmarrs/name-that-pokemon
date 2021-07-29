@@ -18,7 +18,7 @@ DataLabel.propTypes = {
 export default DataLabel
 
 const DataLabelText = styled.p`
-  font-size: calc(10px + 1vmin);
+  font-size: calc(12px + 1vmin);
 `
 
 const DataText = styled.p`
