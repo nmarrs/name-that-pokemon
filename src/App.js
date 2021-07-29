@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import styled from '@emotion/styled'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import MainMenuScreen from 'screens/MainMenuScreen'
+import GameplayScreen from 'screens/GameplayScreen'
+import EndGameScreen from 'screens/EndGameScreen'
+
+const APP_SCREENS = {
+  mainMenu: 'mainMenu',
+  gameplay: 'gameplay',
+  endGame: 'endGame',
 }
 
-export default App;
+function App() {
+  const [currentScreen, setCurrentScreen] = useState(APP_SCREENS.mainMenu)
+
+  const screenToRender = () => {
+    if (currentScreen === APP_SCREENS.mainMenu) {
+      return <MainMenuScreen />
+    } else if (currentScreen === APP_SCREENS.gameplay) {
+      return <GameplayScreen />
+    } else if (currentScreen === APP_SCREENS.endGame) {
+      return <EndGameScreen />
+    } else {
+      return <MainMenuScreen />
+    }
+  }
+
+  return <AppContainer>{screenToRender()}</AppContainer>
+}
+
+export default App
+
+const AppContainer = styled.div`
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
