@@ -5,7 +5,7 @@ import MainMenuScreen from 'screens/MainMenuScreen'
 import GameplayScreen from 'screens/GameplayScreen'
 import EndGameScreen from 'screens/EndGameScreen'
 
-const APP_SCREENS = {
+export const APP_SCREENS = {
   mainMenu: 'mainMenu',
   gameplay: 'gameplay',
   endGame: 'endGame',
@@ -16,11 +16,11 @@ function App() {
 
   const screenToRender = () => {
     if (currentScreen === APP_SCREENS.mainMenu) {
-      return <MainMenuScreen />
+      return <MainMenuScreen setCurrentScreen={setCurrentScreen} />
     } else if (currentScreen === APP_SCREENS.gameplay) {
-      return <GameplayScreen />
+      return <GameplayScreen setCurrentScreen={setCurrentScreen} />
     } else if (currentScreen === APP_SCREENS.endGame) {
-      return <EndGameScreen />
+      return <EndGameScreen setCurrentScreen={setCurrentScreen} />
     } else {
       return <MainMenuScreen />
     }

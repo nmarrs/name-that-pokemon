@@ -1,12 +1,14 @@
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 import Logo from 'components/Logo'
 import Button from 'components/Button'
 import DataLabel from 'components/DataLabel'
-import { SIZES } from '../global-styles'
+import { SIZES } from 'global-styles'
+import { APP_SCREENS } from 'App'
 import sad_pikachu from 'sad_pikachu.svg'
 
-const EndGameScreen = () => {
+const EndGameScreen = ({ setCurrentScreen }) => {
   return (
     <EndGameContainer data-testid="endGameContainer">
       <Logo size={SIZES.small} />
@@ -16,11 +18,21 @@ const EndGameScreen = () => {
         Better luck next time! Keep practicing!
       </EndGameMessageText>
       <EndGameButtonsContainer>
-        <Button title="Play again?" />
-        <Button title="Main Menu" />
+        <Button
+          title="Play again?"
+          onClick={() => setCurrentScreen(APP_SCREENS.gameplay)}
+        />
+        <Button
+          title="Main Menu"
+          onClick={() => setCurrentScreen(APP_SCREENS.mainMenu)}
+        />
       </EndGameButtonsContainer>
     </EndGameContainer>
   )
+}
+
+EndGameScreen.propTypes = {
+  setCurrentScreen: PropTypes.func.isRequired,
 }
 
 export default EndGameScreen

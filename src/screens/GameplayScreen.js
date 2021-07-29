@@ -1,12 +1,14 @@
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
 import Logo from 'components/Logo'
 import Button from 'components/Button'
 import DataLabel from 'components/DataLabel'
-import { SIZES } from '../global-styles'
+import { SIZES } from 'global-styles'
+import { APP_SCREENS } from 'App'
 import example_pokemon from 'example_pokemon.svg'
 
-const GameplayScreen = () => {
+const GameplayScreen = ({ setCurrentScreen }) => {
   return (
     <GameplayContainer>
       <CurrentRoundAndScoreOuterContainer>
@@ -21,13 +23,33 @@ const GameplayScreen = () => {
       <PokemonImage src={example_pokemon} alt="example_pokemon" />
       <DataLabel dataLabelText="TIME REMAINING" dataText="5" />
       <MultipleChoiceButtonsContainer>
-        <Button title="Option 1" size={SIZES.small} />
-        <Button title="Option 2" size={SIZES.small} />
-        <Button title="Option 3" size={SIZES.small} />
-        <Button title="Option 4" size={SIZES.small} />
+        <Button
+          title="Option 1"
+          size={SIZES.small}
+          onClick={() => setCurrentScreen(APP_SCREENS.endGame)}
+        />
+        <Button
+          title="Option 2"
+          size={SIZES.small}
+          onClick={() => setCurrentScreen(APP_SCREENS.endGame)}
+        />
+        <Button
+          title="Option 3"
+          size={SIZES.small}
+          onClick={() => setCurrentScreen(APP_SCREENS.endGame)}
+        />
+        <Button
+          title="Option 4"
+          size={SIZES.small}
+          onClick={() => setCurrentScreen(APP_SCREENS.endGame)}
+        />
       </MultipleChoiceButtonsContainer>
     </GameplayContainer>
   )
+}
+
+GameplayScreen.propTypes = {
+  setCurrentScreen: PropTypes.func.isRequired,
 }
 
 export default GameplayScreen
