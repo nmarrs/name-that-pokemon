@@ -8,12 +8,12 @@ import { SIZES } from 'global-styles'
 import { APP_SCREENS } from 'App'
 import sad_pikachu from 'sad_pikachu.svg'
 
-const EndGameScreen = ({ setCurrentScreen }) => {
+const EndGameScreen = ({ setCurrentScreen, currentScore }) => {
   return (
     <EndGameContainer data-testid="endGameContainer">
       <Logo size={SIZES.small} />
       <PokemonImage src={sad_pikachu} alt="sad_pikachu" />
-      <DataLabel dataLabelText="FINAL SCORE" dataText="20%" />
+      <DataLabel dataLabelText="FINAL SCORE" dataText={`${currentScore}%`} />
       <EndGameMessageText>
         Better luck next time! Keep practicing!
       </EndGameMessageText>
@@ -33,6 +33,7 @@ const EndGameScreen = ({ setCurrentScreen }) => {
 
 EndGameScreen.propTypes = {
   setCurrentScreen: PropTypes.func.isRequired,
+  currentScore: PropTypes.number.isRequired,
 }
 
 export default EndGameScreen
