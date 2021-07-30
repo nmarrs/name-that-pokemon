@@ -1,13 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
+
 import GlobalStyles from './global-styles'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
+const client = new ApolloClient({
+  uri: 'https://beta.pokeapi.co/graphql/v1beta',
+  cache: new InMemoryCache(),
+})
+
 ReactDOM.render(
   <React.StrictMode>
     <GlobalStyles />
-    <App />
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 )

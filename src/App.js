@@ -34,6 +34,7 @@ function App() {
         <EndGameScreen
           setCurrentScreen={setCurrentScreen}
           currentScore={currentScore}
+          setCurrentScore={setCurrentScore}
         />
       )
     } else {

@@ -8,7 +8,13 @@ import { SIZES } from 'global-styles'
 import { APP_SCREENS } from 'App'
 import sad_pikachu from 'sad_pikachu.svg'
 
-const EndGameScreen = ({ setCurrentScreen, currentScore }) => {
+const EndGameScreen = ({ setCurrentScreen, currentScore, setCurrentScore }) => {
+  const navigateAndResetGame = (screen) => {
+    setCurrentScore(0)
+
+    setCurrentScreen(screen)
+  }
+
   return (
     <EndGameContainer data-testid="endGameContainer">
       <Logo size={SIZES.small} />
@@ -20,11 +26,11 @@ const EndGameScreen = ({ setCurrentScreen, currentScore }) => {
       <EndGameButtonsContainer>
         <Button
           title="Play again?"
-          onClick={() => setCurrentScreen(APP_SCREENS.gameplay)}
+          onClick={() => navigateAndResetGame(APP_SCREENS.gameplay)}
         />
         <Button
           title="Main Menu"
-          onClick={() => setCurrentScreen(APP_SCREENS.mainMenu)}
+          onClick={() => navigateAndResetGame(APP_SCREENS.mainMenu)}
         />
       </EndGameButtonsContainer>
     </EndGameContainer>
@@ -34,6 +40,7 @@ const EndGameScreen = ({ setCurrentScreen, currentScore }) => {
 EndGameScreen.propTypes = {
   setCurrentScreen: PropTypes.func.isRequired,
   currentScore: PropTypes.number.isRequired,
+  setCurrentScore: PropTypes.func.isRequired,
 }
 
 export default EndGameScreen

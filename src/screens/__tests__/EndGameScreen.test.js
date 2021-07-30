@@ -4,7 +4,11 @@ import EndGameScreen from 'screens/EndGameScreen'
 describe('EndGameScreen', () => {
   it('renders EndGameScreen correctly', () => {
     const { queryByTestId } = render(
-      <EndGameScreen setCurrentScreen={jest.fn()} currentScore={0} />,
+      <EndGameScreen
+        setCurrentScreen={jest.fn()}
+        currentScore={0}
+        setCurrentScore={jest.fn()}
+      />,
     )
 
     expect(queryByTestId('endGameContainer')).not.toEqual(null)
