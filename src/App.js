@@ -16,10 +16,16 @@ const NUMBER_OF_ROUNDS = 10
 function App() {
   const [currentScreen, setCurrentScreen] = useState(APP_SCREENS.mainMenu)
   const [currentScore, setCurrentScore] = useState(0)
+  const [currentMaxSessionScore, setCurrentMaxSessionScore] = useState(null)
 
   const screenToRender = () => {
     if (currentScreen === APP_SCREENS.mainMenu) {
-      return <MainMenuScreen setCurrentScreen={setCurrentScreen} />
+      return (
+        <MainMenuScreen
+          setCurrentScreen={setCurrentScreen}
+          currentMaxSessionScore={currentMaxSessionScore}
+        />
+      )
     } else if (currentScreen === APP_SCREENS.gameplay) {
       return (
         <GameplayScreen
@@ -27,6 +33,8 @@ function App() {
           currentScore={currentScore}
           setCurrentScore={setCurrentScore}
           numberOfRounds={NUMBER_OF_ROUNDS}
+          currentMaxSessionScore={currentMaxSessionScore}
+          setCurrentMaxSessionScore={setCurrentMaxSessionScore}
         />
       )
     } else if (currentScreen === APP_SCREENS.endGame) {
@@ -35,6 +43,7 @@ function App() {
           setCurrentScreen={setCurrentScreen}
           currentScore={currentScore}
           setCurrentScore={setCurrentScore}
+          currentMaxSessionScore={currentMaxSessionScore}
         />
       )
     } else {

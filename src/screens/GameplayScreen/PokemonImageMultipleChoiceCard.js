@@ -29,6 +29,7 @@ const PokemonImageMultipleChoiceCard = ({
 
     return () => clearInterval(timerInterval)
 
+    // TODO: Figure out whether or not we need to wrap `nameThatPokemon` in a useCallback
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timer])
 
@@ -67,10 +68,10 @@ PokemonImageMultipleChoiceCard.propTypes = {
 export default PokemonImageMultipleChoiceCard
 
 const MultipleChoiceButtonsContainer = styled.div`
-  width: 500px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: auto;
 
   button {
     margin: 20px;
@@ -82,6 +83,14 @@ const MultipleChoiceButtonsContainer = styled.div`
 
   @media screen and (max-width: 780px) {
     width: 350px;
+  }
+
+  @media screen and (max-width: 1440px) {
+    width: 500px;
+  }
+
+  @media screen and (min-width: 1441px) {
+    width: 550px;
   }
 `
 

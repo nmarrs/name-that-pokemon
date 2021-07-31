@@ -83,4 +83,34 @@ describe('EndGameScreen', () => {
 
     expect(textElement).toBeInTheDocument()
   })
+
+  it('renders max session score when it exists', () => {
+    const { getByText } = render(
+      <EndGameScreen
+        setCurrentScreen={jest.fn()}
+        currentScore={69}
+        setCurrentScore={jest.fn()}
+        currentMaxSessionScore={80}
+      />,
+    )
+
+    const textElement = getByText(/best score/i)
+
+    expect(textElement).toBeInTheDocument()
+  })
+
+  it('does not render max session score when non exists', () => {
+    const { queryByText } = render(
+      <EndGameScreen
+        setCurrentScreen={jest.fn()}
+        currentScore={69}
+        setCurrentScore={jest.fn()}
+        currentMaxSessionScore={null}
+      />,
+    )
+
+    const textElement = queryByText(/best score/i)
+
+    expect(textElement).toBe(null)
+  })
 })

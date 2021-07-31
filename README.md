@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Name That Pokemon Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Basic name that pokemon game that tests your knowledge of all pokemon. Built with React using Apollo's GraphQL client for retrieving pokemon data from the graphql [pokiapi](https://pokeapi.co/).
+
+Interested in testing your pokemon knowledge?
+
+[Play Now](https://namethatpokemon.netlify.app/)
 
 ## Available Scripts
 
