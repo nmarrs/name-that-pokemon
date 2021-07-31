@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
-import { SIZES } from '../global-styles'
+import { SIZES } from 'global-styles'
 
 const Button = ({ title, onClick, isDisabled, size }) => {
   return (

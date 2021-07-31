@@ -5,24 +5,40 @@ import MainMenuScreen from 'screens/MainMenuScreen'
 import GameplayScreen from 'screens/GameplayScreen'
 import EndGameScreen from 'screens/EndGameScreen'
 
-const APP_SCREENS = {
+export const APP_SCREENS = {
   mainMenu: 'mainMenu',
   gameplay: 'gameplay',
   endGame: 'endGame',
 }
 
+const NUMBER_OF_ROUNDS = 10
+
 function App() {
   const [currentScreen, setCurrentScreen] = useState(APP_SCREENS.mainMenu)
+  const [currentScore, setCurrentScore] = useState(0)
 
   const screenToRender = () => {
     if (currentScreen === APP_SCREENS.mainMenu) {
-      return <MainMenuScreen />
+      return <MainMenuScreen setCurrentScreen={setCurrentScreen} />
     } else if (currentScreen === APP_SCREENS.gameplay) {
-      return <GameplayScreen />
+      return (
+        <GameplayScreen
+          setCurrentScreen={setCurrentScreen}
+          currentScore={currentScore}
+          setCurrentScore={setCurrentScore}
+          numberOfRounds={NUMBER_OF_ROUNDS}
+        />
+      )
     } else if (currentScreen === APP_SCREENS.endGame) {
-      return <EndGameScreen />
+      return (
+        <EndGameScreen
+          setCurrentScreen={setCurrentScreen}
+          currentScore={currentScore}
+          setCurrentScore={setCurrentScore}
+        />
+      )
     } else {
-      return <MainMenuScreen />
+      return 'Invalid screen'
     }
   }
 
