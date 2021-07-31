@@ -108,7 +108,9 @@ EndGameScreen.propTypes = {
 
 export default EndGameScreen
 
-const EndGameContainer = styled.div``
+const EndGameContainer = styled.div`
+  margin-top: 10px;
+`
 
 const PokemonImage = styled.img`
   height: 35vmin;

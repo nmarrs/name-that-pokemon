@@ -67,10 +67,10 @@ PokemonImageMultipleChoiceCard.propTypes = {
 export default PokemonImageMultipleChoiceCard
 
 const MultipleChoiceButtonsContainer = styled.div`
-  width: 500px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: auto;
 
   button {
     margin: 20px;
@@ -82,6 +82,14 @@ const MultipleChoiceButtonsContainer = styled.div`
 
   @media screen and (max-width: 780px) {
     width: 350px;
+  }
+
+  @media screen and (max-width: 1440px) {
+    width: 500px;
+  }
+
+  @media screen and (min-width: 1441px) {
+    width: 550px;
   }
 `
 

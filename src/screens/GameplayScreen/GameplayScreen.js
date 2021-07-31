@@ -147,18 +147,22 @@ export default GameplayScreen
 const GameplayContainer = styled.div``
 
 const GameplayCardContainer = styled.div`
-  min-height: 50vmin;
+  min-height: 60vmin;
 `
 
 const CurrentRoundAndScoreOuterContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 768px;
 
   div {
     margin: 10px;
   }
+
+  @media screen and (max-width: 780px) {
+    width: 100vw;
+    margin: auto;
+  }
 `
 
-const CurrentRoundAndScoreInnerContainer = styled.div`
-  flex-direction: 'column';
-`
+const CurrentRoundAndScoreInnerContainer = styled.div``
