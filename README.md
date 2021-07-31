@@ -2,6 +2,10 @@
 
 Basic name that pokemon game that tests your knowledge of all pokemon. Built with React using Apollo's GraphQL client for retrieving pokemon data from the graphql [pokiapi](https://pokeapi.co/).
 
+Interested in testing your pokemon knowledge?
+
+[Play Now](https://namethatpokemon.netlify.app/)
+
 ## Available Scripts
 
 In the project directory, you can run:
