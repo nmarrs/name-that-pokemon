@@ -27,6 +27,8 @@ const GameplayScreen = ({
   currentScore,
   setCurrentScore,
   numberOfRounds,
+  currentMaxSessionScore,
+  setCurrentMaxSessionScore,
 }) => {
   const [currentRound, setCurrentRound] = useState(1)
   const [correctPokemonIndex, setCorrectPokemonIndex] = useState(null)
@@ -60,19 +62,35 @@ const GameplayScreen = ({
   }, [shouldRetrieveNewPokemon, getRandomPokemon])
 
   const nameThatPokemon = (index) => {
+    let newCurrentScore
     if (index === correctPokemonIndex) {
       const nextNumberOfCorrectAnswers = numberOfCorrectAnswers + 1
       setNumberOfCorrectAnswers(nextNumberOfCorrectAnswers)
 
-      setCurrentScore(
-        Math.floor((nextNumberOfCorrectAnswers / currentRound) * 100),
+      newCurrentScore = Math.floor(
+        (nextNumberOfCorrectAnswers / currentRound) * 100,
       )
+
+      setCurrentScore(newCurrentScore)
     } else {
-      setCurrentScore(Math.floor((numberOfCorrectAnswers / currentRound) * 100))
+      newCurrentScore = Math.floor(
+        (numberOfCorrectAnswers / currentRound) * 100,
+      )
+
+      setCurrentScore(newCurrentScore)
     }
 
     if (currentRound === numberOfRounds) {
       setNumberOfCorrectAnswers(0)
+
+      if (!currentMaxSessionScore) {
+        setCurrentMaxSessionScore(newCurrentScore)
+      } else {
+        setCurrentMaxSessionScore(
+          Math.max(currentMaxSessionScore, newCurrentScore),
+        )
+      }
+
       setCurrentScreen(APP_SCREENS.endGame)
     } else {
       setCurrentRound(currentRound + 1)
@@ -120,6 +138,8 @@ GameplayScreen.propTypes = {
   currentScore: PropTypes.number.isRequired,
   setCurrentScore: PropTypes.func.isRequired,
   numberOfRounds: PropTypes.number.isRequired,
+  currentMaxSessionScore: PropTypes.number,
+  setCurrentMaxSessionScore: PropTypes.func.isRequired,
 }
 
 export default GameplayScreen

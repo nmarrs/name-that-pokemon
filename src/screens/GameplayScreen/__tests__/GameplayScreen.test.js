@@ -13,6 +13,7 @@ describe('GameplayScreen', () => {
           currentScore={0}
           setCurrentScore={jest.fn()}
           numberOfRounds={10}
+          setCurrentMaxSessionScore={jest.fn()}
         />
       </MockedProvider>,
     )

@@ -11,7 +11,12 @@ import neutral_pikachu from 'images/neutral_pikachu.svg'
 import happy_pikachu from 'images/happy_pikachu.svg'
 import surprised_pikachu from 'images/surprised_pikachu.svg'
 
-const EndGameScreen = ({ setCurrentScreen, currentScore, setCurrentScore }) => {
+const EndGameScreen = ({
+  setCurrentScreen,
+  currentScore,
+  setCurrentScore,
+  currentMaxSessionScore,
+}) => {
   const navigateAndResetGame = (screen) => {
     setCurrentScore(0)
 
@@ -84,6 +89,12 @@ const EndGameScreen = ({ setCurrentScreen, currentScore, setCurrentScore }) => {
           onClick={() => navigateAndResetGame(APP_SCREENS.mainMenu)}
         />
       </EndGameButtonsContainer>
+      {currentMaxSessionScore && (
+        <DataLabel
+          dataLabelText="Best Score So Far This Session"
+          dataText={`${currentMaxSessionScore}%`}
+        />
+      )}
     </EndGameContainer>
   )
 }
@@ -92,6 +103,7 @@ EndGameScreen.propTypes = {
   setCurrentScreen: PropTypes.func.isRequired,
   currentScore: PropTypes.number.isRequired,
   setCurrentScore: PropTypes.func.isRequired,
+  currentMaxSessionScore: PropTypes.number,
 }
 
 export default EndGameScreen
