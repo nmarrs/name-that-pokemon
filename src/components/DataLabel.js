@@ -12,7 +12,8 @@ const DataLabel = ({ dataLabelText, dataText }) => {
 
 DataLabel.propTypes = {
   dataLabelText: PropTypes.string.isRequired,
-  dataText: PropTypes.string.isRequired,
+  dataText: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
 }
 
 export default DataLabel
