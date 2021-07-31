@@ -99,7 +99,7 @@ export default EndGameScreen
 const EndGameContainer = styled.div``
 
 const PokemonImage = styled.img`
-  height: 30vmin;
+  height: 35vmin;
 `
 
 const EndGameMessageText = styled.p`
