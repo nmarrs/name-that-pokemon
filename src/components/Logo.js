@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 
-import logo from 'logo.svg'
+import logo from 'images/logo.svg'
 import { SIZES } from 'global-styles'
 
 const Logo = ({ size }) => {
