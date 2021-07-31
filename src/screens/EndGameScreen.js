@@ -113,7 +113,7 @@ const EndGameContainer = styled.div`
 `
 
 const PokemonImage = styled.img`
-  height: 35vmin;
+  height: 32.5vmin;
 `
 
 const EndGameMessageText = styled.p`

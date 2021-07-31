@@ -29,6 +29,7 @@ const PokemonImageMultipleChoiceCard = ({
 
     return () => clearInterval(timerInterval)
 
+    // TODO: Figure out whether or not we need to wrap `nameThatPokemon` in a useCallback
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timer])
 

@@ -138,8 +138,8 @@ GameplayScreen.propTypes = {
   currentScore: PropTypes.number.isRequired,
   setCurrentScore: PropTypes.func.isRequired,
   numberOfRounds: PropTypes.number.isRequired,
-  currentMaxSessionScore: PropTypes.number,
   setCurrentMaxSessionScore: PropTypes.func.isRequired,
+  currentMaxSessionScore: PropTypes.number,
 }
 
 export default GameplayScreen
